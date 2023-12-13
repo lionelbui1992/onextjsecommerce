@@ -29,19 +29,19 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
       // attributes: attributes,
       attributes: [
         {
-          'key' : 'Recipient email',
+          'key' : 'recipientEmail',
           'value' : 'lionel@onextdigital.com',
         },
         {
-          'key' : 'Recipient name',
+          'key' : 'recipientName',
           'value' : 'Jonh',
         },
         {
-          'key' : 'Message',
+          'key' : 'message',
           'value' : 'Mery Christmas!',
         },
         {
-          'key' : 'Send on',
+          'key' : 'sendOn',
           'value' : '2023-12-14',
         },
       ],
