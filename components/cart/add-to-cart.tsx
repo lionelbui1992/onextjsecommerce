@@ -64,7 +64,7 @@ function SubmitButton({
 
 export function AddToCart({ 
   variants,
-  availableForSale
+  availableForSale,
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
@@ -79,11 +79,38 @@ export function AddToCart({
     )
   );
   const selectedVariantId = variant?.id || defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
-
+  const attributes = [
+    {
+      'key' : '__shopify_send_gift_card_to_recipient',
+      'value' : 'on',
+    },
+    {
+      'key' : 'Recipient email',
+      'value' : 'lionel@onextdigital.com',
+    },
+    {
+      'key' : 'Recipient name',
+      'value' : 'Jonh',
+    },
+    {
+      'key' : 'Message',
+      'value' : 'Mery Christmas!',
+    },
+    {
+      'key' : 'Send on',
+      'value' : '2023-12-14',
+    },
+    {
+      'key' : '__shopify_offset',
+      'value' : '-420',
+    },
+  ];
+  const actionWithVariant = formAction.bind(null, selectedVariantId, attributes);
+  
   return (
     <form action={actionWithVariant}>
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
+      
+      <SubmitButton availableForSale={availableForSale}  selectedVariantId={selectedVariantId} />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>
