@@ -33,7 +33,7 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
           'value' : 'lionel@onextdigital.com',
         },
         {
-          'key' : 'Recipient email',
+          'key' : 'Recipient name',
           'value' : 'Jonh',
         },
         {
