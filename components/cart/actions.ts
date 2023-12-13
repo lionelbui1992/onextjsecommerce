@@ -5,7 +5,7 @@ import { addToCart, createCart, getCart, removeFromCart, updateCart } from 'lib/
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
-export async function addItem(prevState: any, selectedVariantId: string | undefined, attributes: any[]) {
+export async function addItem(prevState: any, selectedVariantId: string | undefined) {
   let cartId = cookies().get('cartId')?.value;
   let cart;
 
@@ -23,37 +23,36 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
     return 'Missing product variant ID';
   }
   try { 
-    
     const cartItem = {
       merchandiseId: selectedVariantId,
       quantity: 1,
-      attributes: attributes,
-      // attributes: [
-      //   {
-      //     'key' : '__shopify_send_gift_card_to_recipient',
-      //     'value' : 'on',
-      //   },
-      //   {
-      //     'key' : 'Recipient email',
-      //     'value' : 'lionel@onextdigital.com',
-      //   },
-      //   {
-      //     'key' : 'Recipient name',
-      //     'value' : 'Jonh',
-      //   },
-      //   {
-      //     'key' : 'Message',
-      //     'value' : 'Mery Christmas!',
-      //   },
-      //   {
-      //     'key' : 'Send on',
-      //     'value' : '2023-12-14',
-      //   },
-      //   {
-      //     'key' : '__shopify_offset',
-      //     'value' : '-420',
-      //   },
-      // ],
+      // attributes: attributes,
+      attributes: [
+        {
+          'key' : '__shopify_send_gift_card_to_recipient',
+          'value' : 'on',
+        },
+        {
+          'key' : 'Recipient email',
+          'value' : 'lionel@onextdigital.com',
+        },
+        {
+          'key' : 'Recipient name',
+          'value' : 'Jonh',
+        },
+        {
+          'key' : 'Message',
+          'value' : 'Mery Christmas!',
+        },
+        {
+          'key' : 'Send on',
+          'value' : '2023-12-14',
+        },
+        {
+          'key' : '__shopify_offset',
+          'value' : '-420',
+        },
+      ],
     };
     
     await addToCart(cartId, [cartItem]);
