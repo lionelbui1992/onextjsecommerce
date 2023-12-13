@@ -78,34 +78,8 @@ export function AddToCart({
       (option) => option.value === searchParams.get(option.name.toLowerCase())
     )
   );
-  const attributes = [
-    {
-      'key' : '__shopify_send_gift_card_to_recipient',
-      'value' : 'on',
-    },
-    {
-      'key' : 'Recipient email',
-      'value' : 'lionel@onextdigital.com',
-    },
-    {
-      'key' : 'Recipient name',
-      'value' : 'Jonh',
-    },
-    {
-      'key' : 'Message',
-      'value' : 'Mery Christmas!',
-    },
-    {
-      'key' : 'Send on',
-      'value' : '2023-12-14',
-    },
-    {
-      'key' : '__shopify_offset',
-      'value' : '-420',
-    },
-  ];
   const selectedVariantId = variant?.id || defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId, attributes);
+  const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
     <form action={actionWithVariant}>
