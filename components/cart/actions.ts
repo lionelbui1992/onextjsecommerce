@@ -29,6 +29,10 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
       // attributes: attributes,
       attributes: [
         {
+          'key' : '__shopify_send_gift_card_to_recipient',
+          'value' : 'on',
+        },
+        {
           'key' : 'Recipient email',
           'value' : 'lionel@onextdigital.com',
         },
@@ -43,6 +47,10 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
         {
           'key' : 'Send on',
           'value' : '2023-12-14',
+        },
+        {
+          'key' : '__shopify_offset',
+          'value' : '-420',
         },
       ],
     };
