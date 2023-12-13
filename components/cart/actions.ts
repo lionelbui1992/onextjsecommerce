@@ -26,8 +26,8 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
     const cartItem = {
       merchandiseId: selectedVariantId,
       quantity: 1,
-      // attributes: attributes,
-      attributes: [
+      // properties: properties,
+      properties: [
         {
           'key' : 'Recipient email',
           'value' : 'lionel@onextdigital.com',
