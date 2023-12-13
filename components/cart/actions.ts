@@ -4,15 +4,13 @@ import { TAGS } from 'lib/constants';
 import { addToCart, createCart, getCart, removeFromCart, updateCart } from 'lib/shopify';
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 
 export async function addItem(prevState: any, selectedVariantId: string | undefined) {
-  const router = useRouter();
-  const { query } = router;
-  const formData = query;
-  console.log(formData);
-  
+  const searchParams = useSearchParams();
+  console.log(searchParams);
+
   let cartId = cookies().get('cartId')?.value;
   let cart;
 
