@@ -27,7 +27,7 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
       merchandiseId: selectedVariantId,
       quantity: 1,
       // attributes: attributes,
-      customAttributes: [
+      attributes: [
         {
           'key' : 'Recipient email',
           'value' : 'lionel@onextdigital.com',
